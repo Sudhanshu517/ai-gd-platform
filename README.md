@@ -10,64 +10,44 @@ This is a full-stack MERN application for real-time group discussion simulations
 
 ## 📁 Project Structure
 
-/client → Frontend (React)
-/server → Backend (Express API)
+```
+/client   → Frontend (React)
+/server   → Backend (Express API)
 README.md
-
-bash
-Copy
-Edit
+```
 
 ## 🔧 Setup Instructions
 
 1. Clone the repo
 
 ```bash
-git clone https://github.com/your-username/ai-gd-platform.git
+git clone https://github.com/Sudhanshu517/ai-gd-platform
 cd ai-gd-platform
-Setup frontend
+```
 
-bash
-Copy
-Edit
+2. Setup frontend
+
+```bash
 cd client
 npm install
 npm run dev
-Setup backend
+```
 
-bash
-Copy
-Edit
+3. Setup backend
+
+```bash
 cd ../server
 npm install
 node index.js
-✅ Progress
- Folder structure setup
+```
 
- Server + dummy route working
+## ✅ Progress
 
- React + Tailwind + dummy component
+- [x] Folder structure setup  
+- [x] Server + dummy route working  
+- [x] React + Tailwind + dummy component  
+- [ ] Auth system  
+- [ ] Audio-based GD room  
+- [ ] AI participation & feedback report  
 
- Auth system
-
- Audio-based GD room
-
- AI participation & feedback report
-
-🛠️ WIP: Audio room setup and AI integration in progress...
-
-yaml
-Copy
-Edit
-
----
-
-## ✅ 5. Git Commit & Push (Step-by-step)
-
-```bash
-git init
-git add .
-git commit -m "Initial project setup: folder structure, dummy route and UI component"
-git branch -M main
-git remote add origin https://github.com/your-username/ai-gd-platform.git
-git push -u origin main
+> 🛠️ WIP: Audio room setup and AI integration in progress...
