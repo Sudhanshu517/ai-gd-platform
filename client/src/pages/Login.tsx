@@ -4,44 +4,50 @@ import { useNavigate } from "react-router-dom";
 import { API_BASE } from "../config";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
 
   const handleLogin = async () => {
-    if (!email || !password) return alert("Please enter email and password");
-
     try {
-      const res = await axios.post(`${API_BASE}/auth/login`, { email, password });
-      localStorage.setItem("token", res.data.token); // ✅ Store JWT
+      const res = await axios.post(`${API_BASE}/api/auth/login`, {
+        email,
+        password,
+      });
+
+      // ✅ Save token in localStorage
+      localStorage.setItem("token", res.data.token);
+
       alert("Login successful!");
-      navigate("/"); // Redirect to homepage or CreateSession
+
+      // ✅ Redirect to Create Session page ("/")
+      navigate("/");
     } catch (err) {
+      alert("Login failed. Please check your credentials.");
       console.error(err);
-      alert("Login failed. Check credentials.");
     }
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow">
-      <h2 className="text-2xl font-bold mb-4">Login</h2>
+    <div className="p-4 max-w-md mx-auto">
+      <h2 className="text-xl font-bold mb-4">Login</h2>
       <input
         type="email"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="w-full mb-3 border p-2 rounded"
+        className="border w-full p-2 mb-3"
       />
       <input
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        className="w-full mb-3 border p-2 rounded"
+        className="border w-full p-2 mb-3"
       />
       <button
         onClick={handleLogin}
-        className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+        className="bg-blue-500 text-white px-4 py-2 rounded"
       >
         Login
       </button>

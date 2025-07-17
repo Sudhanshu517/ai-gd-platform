@@ -1,16 +1,19 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Auth from "./pages/Auth";
 import CreateSession from "./components/CreateSession";
 import GDRoom from "./pages/GDRoom";
+import Login from "./pages/Login"; // <-- Added Login page
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Auth />} />
-        <Route path="/create" element={<CreateSession />} />
-        <Route path="/session/:id" element={<GDRoom />} />
-      </Routes>
+      <div className="p-4">
+        <h1 className="text-2xl font-bold text-blue-700 mb-4">AI GD Platform</h1>
+        <Routes>
+          <Route path="/" element={<CreateSession />} />
+          <Route path="/session/:id" element={<GDRoom />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </div>
     </Router>
   );
 }
