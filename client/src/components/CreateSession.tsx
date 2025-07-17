@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API_BASE } from "../config";
 
 // Simple create session form
 const CreateSession = () => {
@@ -31,7 +32,7 @@ const CreateSession = () => {
       }
 
       const res = await axios.post(
-        "http://localhost:5000/api/session/create",
+        `${API_BASE}/session/create`,
         {
           topic,
           aiCount,

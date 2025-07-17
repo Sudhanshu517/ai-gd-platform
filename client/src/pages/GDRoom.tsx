@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react"; // CHANGED: added useRef
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { API_BASE } from "../config";
 
 interface SessionData {
   _id: string;
@@ -32,7 +33,7 @@ const GDRoom = () => {
     const fetchSession = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get(`http://localhost:5000/api/session/${id}`, {
+        const res = await axios.get(`${API_BASE}/session/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setSession(res.data);
@@ -92,7 +93,7 @@ const GDRoom = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/session/generate-report",
+        `${API_BASE}/session/generate-report`,
         {
           topic: session?.topic || "Untitled Session", // CHANGED
           messages: discussionLines,                   // CHANGED
