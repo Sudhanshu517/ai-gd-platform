@@ -1,13 +1,10 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "commonjs",
     "outDir": "dist",
-    "rootDir": "./",
-    "strict": true,
+    "module": "commonjs",
+    "target": "ES2019",
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "strict": true
   },
-  "include": ["**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": ["*.ts", "controllers/**/*.ts", "routes/**/*.ts", "models/**/*.ts", "middleware/**/*.ts", "services/**/*.ts"]
 }
