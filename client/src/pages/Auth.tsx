@@ -14,11 +14,11 @@ const Auth = () => {
     e.preventDefault();
     try {
       if (isLogin) {
-        const res = await axios.post(`${API_BASE}/api/auth/login`, { email, password });
+        const res = await axios.post(`${API_BASE}/auth/login`, { email, password });
         localStorage.setItem("token", res.data.token);
         setMessage("Login successful! 🎉");
       } else {
-        await axios.post(`${API_BASE}/api/auth/register`, { username, email, password });
+        await axios.post(`${API_BASE}/auth/register`, { username, email, password });
         setMessage("Registered successfully! Switch to login.");
       }
     } catch (err) {
